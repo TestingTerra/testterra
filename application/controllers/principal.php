@@ -12,6 +12,7 @@ class Principal extends CI_Controller {
 	{
 		$this->load->view('headers');
 		$this->load->view('menu');
+		$this->load->view('formaside');
 		$this->load->view('principal');
 		$this->load->view('scripts');
 	}
