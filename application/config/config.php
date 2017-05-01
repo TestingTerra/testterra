@@ -23,7 +23,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/testterra';
+//$config['base_url'] = 'http://localhost/testterra';
+$config['base_url'] = 'http://vazterra.com/javier/';
+//$config['base_url'] = 'http://vazterra.com/nelson/';
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +38,7 @@ $config['base_url'] = 'http://localhost/testterra';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php?';
+$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------

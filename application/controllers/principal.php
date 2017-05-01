@@ -6,7 +6,8 @@ class Principal extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->helper('form');
-		$this->load->model('consultar_model');
+		$this->load->helper('url');
+		//$this->load->model('consultar_model');
 	}
 
 	public function index()
@@ -35,7 +36,7 @@ class Principal extends CI_Controller {
 						'keyword'	=> $this->input->post('inpKeyword')
 		);
 
-		$this->consultar_model->consultar($data);
+		//$this->consultar_model->consultar($data);
 
 	}
 
