@@ -24,6 +24,14 @@ class Principal extends CI_Controller {
 		$this->load->view('scripts');
 	}
 
+	function login() {
+
+		$this->load->view('head');
+		$this->load->view('headers');
+		$this->load->view('login.php');
+
+	}
+
 	function consultarInformacion() {
 
 		$data = array(	'inmueble'	=> $this->input->post('cmboInmueble'),
