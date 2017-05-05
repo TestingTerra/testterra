@@ -27,7 +27,6 @@ class Principal extends CI_Controller {
 	}
 
 	function consultarInformacion() {
-
 		$data = array(	'inmueble'	=> $this->input->post('cmboInmueble'),
 						'operacion'	=> $this->input->post('cmboOperacion'),
 						'estado'	=> $this->input->post('cmboEstado'),
@@ -59,9 +58,23 @@ class Principal extends CI_Controller {
 	  $col = $this->input->post('col');
 	  $zona = $this->input->post('zona');
 	  $precio = $this->input->post('precio');
+		$config['upload_path'] = './assets/imagenesInm/';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg';
+    $config['max_size'] = 2000;
+    $config['max_width'] = 1024;
+    $config['max_height'] = 768;
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('imgPrin'))
+		{
+
+		}
+		else
+		{
+			$dataImg = $this->upload->data();
+		}
 		// Aquí vamos a guardar los datos en un arreglo para enviarlas a la vista o usarlas en la db.
 		$datosInm = array(
-			'imgPrin' =>$imgPrin,
+			'imgPrin' =>base_url('assets/imagenesInm/').$dataImg['file_name'],
 			'titulo' =>$titulo,
 			'subtitulo' =>$subtitulo,
 			'clave' =>$clave,

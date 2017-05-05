@@ -9,7 +9,8 @@
 </head>
 
 <body>
-  <?php
+	<img src= <?php echo $imgPrin; ?> alt="no se puede ver">
+	<?php
 	 echo $imgPrin."<br>";
 	 echo $titulo."<br>";
 	 echo $subtitulo."<br>";

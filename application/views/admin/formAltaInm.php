@@ -1,6 +1,6 @@
 <?php
   $atribForm = array('id' =>'formAltInm' );
-  echo form_open('principal/altaInmueble',$atribForm);
+  echo form_open_multipart('principal/altaInmueble',$atribForm);
   ?>
     <!--imagen input principal tipo file  -->
     <div class="form-group">
