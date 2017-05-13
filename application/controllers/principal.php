@@ -63,8 +63,9 @@ class Principal extends CI_Controller {
     $config['max_size'] = 2000;
     $config['max_width'] = 1024;
     $config['max_height'] = 768;
+		$this->form_validation->set_error_delimiters('<span class="error-span">', '</span>');
 		$this->load->library('upload', $config);
-		if ($this->form_validation->run()===FALSE) {
+		if ($this->form_validation->run('altaInm')===FALSE) {
 			$this->load->view('head');
 			$this->load->view('headers');
 			$this->load->view('menu');
@@ -75,8 +76,7 @@ class Principal extends CI_Controller {
 			if ( ! $this->upload->do_upload('imgPrin'))
 			{
 				// insertar una vista si pasa un error.
-			}
-			else
+			}else
 			{
 				$dataImg = $this->upload->data();
 			}

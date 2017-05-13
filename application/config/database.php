@@ -72,12 +72,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-
+$nombreServidor = $_SERVER['SERVER_NAME'];
+if ($nombreServidor === 'localhost') {
+	$hostname = 'localhost';
+	$username = 'root';
+	$password = '';
+}elseif ($nombreServidor === 'vazterra.com' || $nombreServidor === 'www.vazterra.com') {
+	$hostname = '67.227.237.26';
+	$username = 'vazterra_daniel';
+	$password = 'keq)z59L#A6G';
+}
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => $hostname,
+	'username' => $username,
+	'password' => $password,
 	'database' => 'vazterra_principal',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

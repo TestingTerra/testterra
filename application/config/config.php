@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $nombreServidor = $_SERVER['SERVER_NAME'];
 if ($nombreServidor === 'localhost') {
-  $config['base_url'] = 'http://'.$nombreServidor.'/testterra/';
+  $config['base_url'] = 'http://'.$nombreServidor.'/daniel/';
 }elseif ($nombreServidor === 'vazterra.com' || $nombreServidor === 'www.vazterra.com') {
   $config['base_url'] = 'http://'.$nombreServidor.'/daniel/';
 }

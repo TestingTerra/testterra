@@ -1,0 +1,14 @@
+[01-May-2017 21:20:51 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/vazterra/public_html/daniel/application/views/headers.php on line 8
+[01-May-2017 21:20:58 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/vazterra/public_html/daniel/application/views/headers.php on line 8
+[01-May-2017 21:21:50 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/vazterra/public_html/daniel/application/views/headers.php on line 8
+[01-May-2017 21:21:51 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/vazterra/public_html/daniel/application/views/headers.php on line 8
+[01-May-2017 21:21:58 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/vazterra/public_html/daniel/application/views/headers.php on line 8
+[13-May-2017 18:18:35 UTC] PHP Parse error:  syntax error, unexpected '$password' (T_VARIABLE) in /home/vazterra/public_html/daniel/application/config/database.php on line 79
+[13-May-2017 18:18:37 UTC] PHP Parse error:  syntax error, unexpected '$password' (T_VARIABLE) in /home/vazterra/public_html/daniel/application/config/database.php on line 79
+[13-May-2017 18:18:47 UTC] PHP Parse error:  syntax error, unexpected '$password' (T_VARIABLE) in /home/vazterra/public_html/daniel/application/config/database.php on line 79
+[13-May-2017 18:18:48 UTC] PHP Parse error:  syntax error, unexpected '$password' (T_VARIABLE) in /home/vazterra/public_html/daniel/application/config/database.php on line 79
+[13-May-2017 18:18:49 UTC] PHP Parse error:  syntax error, unexpected '$password' (T_VARIABLE) in /home/vazterra/public_html/daniel/application/config/database.php on line 79
+[13-May-2017 18:18:49 UTC] PHP Parse error:  syntax error, unexpected '$password' (T_VARIABLE) in /home/vazterra/public_html/daniel/application/config/database.php on line 79
+[13-May-2017 18:18:50 UTC] PHP Parse error:  syntax error, unexpected '$password' (T_VARIABLE) in /home/vazterra/public_html/daniel/application/config/database.php on line 79
+[13-May-2017 18:18:50 UTC] PHP Parse error:  syntax error, unexpected '$password' (T_VARIABLE) in /home/vazterra/public_html/daniel/application/config/database.php on line 79
+[13-May-2017 18:18:57 UTC] PHP Parse error:  syntax error, unexpected '$password' (T_VARIABLE) in /home/vazterra/public_html/daniel/application/config/database.php on line 79

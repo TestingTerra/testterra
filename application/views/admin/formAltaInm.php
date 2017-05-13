@@ -17,16 +17,18 @@
 			<!--imagen input principal tipo file  -->
 			<div class="form-group">
 				<?php
-		      $atribFormUp = array('name' => 'imgPrin','id'=>'imgPrin','class'=>'form-control','accept' =>'image/*');
-	      echo form_label("Agregar Imagen: ".form_upload($atribFormUp),'imgPrin');
+		      $atribFormUp = array('name' => 'imgPrin','id'=>'imgPrin','class'=>'form-control','accept' =>'image/*','required'=>'required');
+		      echo form_label("Agregar Imagen: ".form_upload($atribFormUp),'imgPrin');
+					echo form_error('imgPrin');
 	      ?>
 			</div>
 			<!-- titulo input tipo texto  -->
 			<div class="form-group">
 				<?php
 					// un arreglo de los atributos del input.
-		      $atribInpTit = array('name' => 'titulo', 'id'=>'titulo','class'=>'form-control');
+		      $atribInpTit = array('name' => 'titulo', 'id'=>'titulo','class'=>'form-control','value'=>set_value('titulo'));
 		      echo form_label('Título: '.form_input($atribInpTit),'titulo');
+					echo form_error('titulo');
 				?>
 			</div>
 			<!-- subtítulo input tipo texto  -->
@@ -35,6 +37,7 @@
 					// un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'subtitulo', 'id'=>'subtitulo','class'=>'form-control','value'=>set_value('subtitulo'));
 		      echo form_label('Subtítulo: '.form_input($atribInpTit),'subtitulo');
+					echo form_error('subtitulo');
 				?>
 			</div>
 			<!-- clave input tipo texto  -->
@@ -43,6 +46,7 @@
 					// un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'clave', 'id'=>'clave','class'=>'form-control','value' => set_value('clave'));
 		      echo form_label('Clave'.form_input($atribInpTit),'clave');
+					echo form_error('clave');
 				?>
 			</div>
 			<!-- área en construcción input tipo texto  -->
@@ -51,6 +55,7 @@
 					// un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'areaConst', 'id'=>'areaConst','class'=>'form-control','value' => set_value('areaConst'));
 		      echo form_label('Área en construcción:'.form_input($atribInpTit),'areaConst');
+					echo form_error('areaConst');
 				?>
 			</div>
 			<!-- área del terreno input tipo texto  -->
@@ -59,6 +64,7 @@
 					// un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'areaTerr', 'id'=>'areaTerr','class'=>'form-control','value' => set_value('areaTerr'));
 		      echo form_label('Área del terreno:'.form_input($atribInpTit),'areaTerr');
+					echo form_error('areaTerr');
 	      ?>
 			</div>
 			<!--cantidad de recamaras input tipo number  -->
@@ -67,6 +73,7 @@
 		      // un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'recam', 'id'=>'recam','class'=>'form-control','type'=>'number','min'=>'1','value' => set_value('recam'));
 		      echo form_label('Recamaras:'.form_input($atribInpTit),'recam');
+					echo form_error('recam');
 			  ?>
 			</div>
 			<!--baños input tipo number  -->
@@ -75,6 +82,7 @@
 		      // un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'banos', 'id'=>'banos','class'=>'form-control','type'=>'number','min'=>'1','value' => set_value('banos'));
 		      echo form_label('Baños:'.form_input($atribInpTit),'banos');
+					echo form_error('banos');
 					?>
 			</div>
 			<!--cantidad de medios baños input tipo number  -->
@@ -83,6 +91,7 @@
 					// un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'medBanos', 'id'=>'medBanos','class'=>'form-control','type'=>'number','min'=>'1','value' => set_value('medBanos'));
 		      echo form_label('Medios Baños '.form_input($atribInpTit),'medBanos');
+					echo form_error('medBanos');
 				?>
 			</div>
 			<!-- dirección input tipo texto  -->
@@ -91,6 +100,7 @@
 		      // un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'direccion', 'id'=>'direccion','class'=>'form-control','value' =>set_value('direccion'));
 		      echo form_label('Dirección:'.form_input($atribInpTit),'direccion');
+					echo form_error('direccion');
 				?>
 			</div>
 			<!-- tipo input tipo texto  -->
@@ -99,6 +109,7 @@
 		      // un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'tipo', 'id'=>'tipo','class'=>'form-control','value' => set_value('tipo'));
 		      echo form_label('Tipo:'.form_input($atribInpTit),'tipo');
+					echo form_error('tipo');
 				?>
 			</div>
 			<!-- operación input tipo texto  -->
@@ -107,6 +118,7 @@
 		      // un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'oper', 'id'=>'oper','class'=>'form-control','value' => set_value('oper'));
 		      echo form_label('Operación:'.form_input($atribInpTit),'oper');
+					echo form_error('oper');
 	      ?>
 			</div>
 			<!-- input hidden urlControlador  -->
@@ -121,6 +133,7 @@
 				<?php
 		      $atribSelect = array('name' => 'estado', 'id'=>'estado','class'=>'form-control','value' => set_value('estado'));
 	       echo form_label('Estado:','estado').form_dropdown($atribSelect,$estados,set_value('estado'));
+				 echo form_error('estado');
 				?>
 			</div>
 			<!-- select municipio -->
@@ -128,6 +141,7 @@
 				<?php
 		      $atribSelect = array('name' => 'mun', 'id'=>'mun','class'=>'form-control','disabled'=>'disabled','value' => set_value('mun'));
 		       echo form_label('Municipio:','mun').form_dropdown($atribSelect,'',set_value('mun'));
+					 echo form_error('mun');
 	      ?>
 			</div>
 			<!-- colonia input tipo texto  -->
@@ -136,6 +150,7 @@
 		      // un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'col', 'id'=>'col','class'=>'form-control','value' => set_value('col'));
 		      echo form_label('Colonia:'.form_input($atribInpTit),'col');
+					echo form_error('col');
 	      ?>
 			</div>
 			<!-- zona input tipo texto  -->
@@ -144,6 +159,7 @@
 		      // un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'zona', 'id'=>'zona','class'=>'form-control','value' => set_value('zona'));
 		      echo form_label('Zona:'.form_input($atribInpTit),'zona');
+					echo form_error('zona');
         ?>
 			</div>
 			<!-- precio input tipo texto  -->
@@ -152,6 +168,7 @@
 		      // un arreglo de los atributos del input.
 		      $atribInpTit = array('name' => 'precio', 'id'=>'precio','class'=>'form-control','value' => set_value('precio'));
 		      echo form_label('Precio:'.form_input($atribInpTit),'precio');
+					echo form_error('precio');
 	      ?>
 			</div>
 			<!-- submit input tipo texto  -->

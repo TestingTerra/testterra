@@ -19,7 +19,10 @@
 input:-webkit-autofill,input:-webkit-autofill:focus{
   -webkit-box-shadow: 0 0 0px 1000px rgb(201, 178, 56) inset;
   -webkit-text-fill-color: black !important;
-  -webkit-
+}
+.error-span{
+  color: white;
+  background-color: darkred;
 }
 /*
 input:-webkit-autofill,
