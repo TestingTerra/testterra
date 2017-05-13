@@ -1,0 +1,31 @@
+#formAltInm{
+  background-color: rgba(156, 61, 8, 0.95);
+}
+#formAltInm label{
+  display: block;
+  color: rgb(233, 242, 246);
+}
+#contForm{
+  background-color: rgb(126, 150, 8);
+}
+#formAltInm input{
+  background-color: rgb(201, 178, 56);
+  color: black;
+}
+#formAltInm select{
+  background-color: rgb(201, 178, 56);
+  color: black;
+}
+input:-webkit-autofill,input:-webkit-autofill:focus{
+  -webkit-box-shadow: 0 0 0px 1000px rgb(201, 178, 56) inset;
+  -webkit-text-fill-color: black !important;
+  -webkit-
+}
+/*
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+ */

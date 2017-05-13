@@ -8,6 +8,7 @@ class Principal extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->model('Alta_inm_model');
+		$this->load->library('form_validation');
 		// $this->load->model('consultar_model');
 	}
 
@@ -20,7 +21,6 @@ class Principal extends CI_Controller {
 		$this->load->view('article_up');
 		$this->load->view('article_down');
 		$this->load->view('form_aside');
-		$this->load->view('admin/formAltaInm');
 		$this->load->view('footer');
 		//$this->load->view('formaside');
 		$this->load->view('scripts');
@@ -37,7 +37,7 @@ class Principal extends CI_Controller {
 						'keyword'	=> $this->input->post('inpKeyword')
 		);
 		// $this->consultar_model->consultar($data);
-	}
+	}//fin de la función consultarInformacion
 	public function altaInmueble()
 	{
 		//vamos a guardar los datos de los input en variables para el manejo en la base de datos
@@ -64,35 +64,78 @@ class Principal extends CI_Controller {
     $config['max_width'] = 1024;
     $config['max_height'] = 768;
 		$this->load->library('upload', $config);
-		if ( ! $this->upload->do_upload('imgPrin'))
-		{
+		if ($this->form_validation->run()===FALSE) {
+			$this->load->view('head');
+			$this->load->view('headers');
+			$this->load->view('menu');
+			$this->load->view('admin/formAltaInm');
+			$this->load->view('footer');
+			$this->load->view('scripts');
+		}else{
+			if ( ! $this->upload->do_upload('imgPrin'))
+			{
+				// insertar una vista si pasa un error.
+			}
+			else
+			{
+				$dataImg = $this->upload->data();
+			}
+			// Aquí vamos a guardar los datos en un arreglo para enviarlas a la vista o usarlas en la db.
+			$datosInm = array(
+				'imgPrin' =>base_url('assets/imagenesInm/').$dataImg['file_name'],
+				'titulo' =>$titulo,
+				'subtitulo' =>$subtitulo,
+				'clave' =>$clave,
+				'areaConst' =>$areaConst,
+				'areaTerr' =>$areaTerr,
+				'recam' =>$recam,
+				'banos' =>$banos,
+				'medBanos' =>$medBanos,
+				'direccion' =>$direccion,
+				'tipo' =>$tipo,
+				'oper' =>$oper,
+				'estado' =>$estado,
+				'mun' =>$mun,
+				'col' =>$col,
+				'zona' =>$zona,
+				'precio' =>$precio
+			);
+			$this->Alta_inm_model->alta_Inm($datosInm);
+			$this->load->view('admin/datos_Form_Inm',$datosInm);
+		}//fin del else
 
-		}
-		else
-		{
-			$dataImg = $this->upload->data();
-		}
-		// Aquí vamos a guardar los datos en un arreglo para enviarlas a la vista o usarlas en la db.
-		$datosInm = array(
-			'imgPrin' =>base_url('assets/imagenesInm/').$dataImg['file_name'],
-			'titulo' =>$titulo,
-			'subtitulo' =>$subtitulo,
-			'clave' =>$clave,
-			'areaConst' =>$areaConst,
-			'areaTerr' =>$areaTerr,
-			'recam' =>$recam,
-			'banos' =>$banos,
-			'medBanos' =>$medBanos,
-			'direccion' =>$direccion,
-			'tipo' =>$tipo,
-			'oper' =>$oper,
-			'estado' =>$estado,
-			'mun' =>$mun,
-			'col' =>$col,
-			'zona' =>$zona,
-			'precio' =>$precio
-	);
-		$this->Alta_inm_model->alta_Inm($datosInm);
-		$this->load->view('admin/datos_Form_Inm',$datosInm);
+	}//fin de la función altaInmueble
+	public function muniDb()
+	{
+		if (isset($_POST['idEstado'])) {
+			$idEstado = $_POST['idEstado'];
+			$consultaCadena = "SELECT mun.id AS idMun, mun.nombre AS nomMun, mun.estado_id AS idEdoM, edo.id AS idEdo, edo.nombre AS edoNom FROM municipios AS mun INNER JOIN estados AS edo ON mun.estado_id = edo.id WHERE edo.nombre = '$idEstado';";
+			$consulta = $this->db->query($consultaCadena);
+			$resultado = $consulta->result_array();
+			$numFilas = $consulta->result_id->num_rows;
+			$selOptMun = "<option value = '' selected>Selecciona un municipio</option>";
+			$datos = array();
+			if ($numFilas > 0) {
+				$datos['exito'] = TRUE;
+				foreach ($resultado as $res) {
+					$selOptMun.="<option value = '".$res['nomMun']."'>".$res['nomMun']."</option>";
+		    }
+				$datos['datos'] = $selOptMun;
+				echo json_encode($datos,JSON_UNESCAPED_UNICODE);
+			}else{
+				$datos['exito'] = FALSE;
+				$datos['datos'] = "Paso un error";
+				// Aquí debemos hacer algo si hay un error
+			}//fin del else
+		}//fin del if
+	}// fin de la función muniDb
+	public function vistaFormInm()
+	{
+		$this->load->view('head');
+		$this->load->view('headers');
+		$this->load->view('menu');
+		$this->load->view('admin/formAltaInm');
+		$this->load->view('footer');
+		$this->load->view('scripts');
 	}
-}
+}//fin de la clase

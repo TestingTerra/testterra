@@ -23,8 +23,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/testterra/';
-// $config['base_url'] = 'http://vazterra.com/daniel/';
+$nombreServidor = $_SERVER['SERVER_NAME'];
+if ($nombreServidor === 'localhost') {
+  $config['base_url'] = 'http://'.$nombreServidor.'/testterra/';
+}elseif ($nombreServidor === 'vazterra.com' || $nombreServidor === 'www.vazterra.com') {
+  $config['base_url'] = 'http://'.$nombreServidor.'/daniel/';
+}
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -35,7 +39,7 @@ $config['base_url'] = 'http://localhost/testterra/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php?';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +80,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'spanish';
 
 /*
 |--------------------------------------------------------------------------

@@ -7,6 +7,7 @@
       <li><a href="#">INMUEBLES</a></li>
       <li><a href="#">CONTACTO</a></li>
       <li><a href="#">LIGAS DE INTERES</a></li>
+      <li><a href="<?php echo site_url("principal/vistaFormInm") ?>">Alta Inmueble</a></li>
       <li><a href="#">FACEBOOK</a></li>
     </ul>
   </div>

@@ -11,6 +11,7 @@
 <body>
 	<img src= <?php echo $imgPrin; ?> alt="no se puede ver">
 	<?php
+	 echo "<br>";
 	 echo $imgPrin."<br>";
 	 echo $titulo."<br>";
 	 echo $subtitulo."<br>";
